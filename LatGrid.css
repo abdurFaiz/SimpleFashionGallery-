@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(232, 232, 232);
+    font-size: 16px;
+    font-family: 'Kanit', sans-serif;    
+    margin: 80px;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    gap: 24px;
+}
+image{
+    width: 100%;
+}
+/* Header */
+.header{
+    display: grid;
+    grid-template-areas: 
+    'hero hero feature-1'
+    'hero hero feature-2'
+    ;
+}
+.hero{
+    grid-area: hero;
+    min-height: 300px;
+    background-image: url(image/Fash4.png);
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    border-radius: 16px 0 0 16px ;
+}
+.hero >*{
+    display: none;
+}
+.features{
+    background-color: aqua;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+.feature-1{
+    grid-area: feature-1;
+    background-image: url(image/Fash1.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 16px 0 0 ;
+}
+.feature-2{
+    grid-area: feature-2;
+    background-image: url(image/Fash2.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 16px 0 ;
+}
+.features .price{
+    font-size: 3.5em;
+    font-weight: 200;
+    color: whitesmoke;
+}
+/* nav */
+.menu{
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+.menu .brand{
+    font-size: 1.5em;
+    color: rgb(55, 55, 55);
+}
+.menu ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+}
+.menu a{
+    display: block;
+    text-decoration: none;
+    background-color: rgb(21, 21, 21);
+    color: whitesmoke;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+.menu-toggle input[type="checkbox"]{
+    position: absolute;
+    width: 44px;
+    height: 20px;
+    left: -10px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+.menu-toggle span{
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: rgb(150, 150, 150);
+    border-radius: 4px;
+    transition: all 0.3ms;
+}
+/* hamburger menu animation */
+/* nth-child ini berfungsi menargetkan child yang dimiliki parentnya, perhitungan child dimaulai dari paling awal walaupun berbeda tag html */
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0 ;
+}
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100% ;
+}
+/* maksud (~) ini adalah siblings artinya child yang ada di dalam parent */
+.menu-toggle input:checked ~ span:nth-child(2){
+    transform: rotate(45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(4){
+    transform: rotate(-45deg) translate(0, -2px);
+}
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* services */
+.services{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+.service{
+    border-radius: 12px;
+    padding: 12px 24px;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 6px rgba(227, 227, 227, 0.79);
+}
+.services h2{
+    grid-column: 1 / -1;
+}
+.service .icon{
+    font-size: 32px;
+}
+.service h3{
+    font-size: 18px;
+}
+.service p{
+    font-size: 14px;
+}
+
+/* Galery */
+.gallery{
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.gallery h2{
+    grid-column: 1 / -1;
+}
+.gallery img{
+    border-radius: 8px;
+}
+/* testimonials */
+.testimonials{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+}
+.card{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+.testimonials h2{
+    grid-column: 1 / -1;
+}
+.testimonials .hero-testi{
+    padding: 12px 24px;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 6px rgba(227, 227, 227, 0.79);
+}
+.card .testi-card{
+    padding: 12px 24px;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 6px rgba(227, 227, 227, 0.79);
+}
+.testi-card .avatar{
+    font-size: 24px;
+    text-align: center
+}
+.testi-card h3{
+    text-align: center;
+    color: #555;
+    font-size: 24px;
+}
+.testi-card p{
+    font-size: 14px;
+    text-align: center;
+}
+
+footer{
+    margin-top: 80px;
+}
+.items-footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 80px;
+}
+.item{
+    display: grid;
+    gap: 16px;
+    place-content: start;
+}
+.item-header h3{
+    font-size: 36px;
+    font-weight: 400;
+    text-align: start;
+}
+.item-header p{
+    font-size: 14px;
+    color: rgb(163, 163, 163);
+    text-align: start;
+}
+.item .sosmed {
+    display: grid;  
+    width: 150px;
+    grid-template-columns: repeat(auto-fit, minmax(4px, 1fr));
+    
+}
+.item .sosmed img{
+    min-width: 14px;
+    max-width: 24px;
+}
+.item-menu{
+    display: grid;
+    grid-template-rows: auto;
+    place-items: start;
+    margin-top: 50px;
+}
+.item-menu .menu-item {
+    list-style-type: none;
+    text-align: start;
+}
+.menu-item li a{
+    text-decoration: none;
+    color: #3c3c3c;
+    font-size: 18px;
+    font-weight: 600;
+}
+.copyright{
+    margin-top: 16px;
+}
+/* Responsive Breakpoint */
+@media (max-width: 1024px) {
+    .menu{
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+    .brand{
+        display: none;
+    }
+    .hero >*{
+        display: block;
+        background-color: rgb(21, 21, 21);
+        color: whitesmoke;
+        padding: 8px;
+        margin-bottom: 4px;
+    }
+    .hero{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .menu{
+        order: -1;
+        justify-items: end;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .menu ul{
+        display: flex;
+        padding-top: 80px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        /* satuan hv artinya hight viewport*/
+        height: 100vh;
+        align-items: center;
+        justify-content: flex-start;
+        gap:24px ;
+        width: 100%;
+        flex-direction: column;
+        z-index: 1;
+        background-color: rgb(21, 21, 21);
+        transform: translateY(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+    .menu ul:hover{
+        background-color: whitesmoke;
+        color: rgb(21, 21, 21);
+    }
+    .menu ul.slide{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+@media (max-width: 567px) {
+    body{
+        margin: 24px;
+    }
+    .header{
+        grid-template-areas: 
+        'hero'
+        'feature-1'
+        'feature-2'
+        ;
+    }
+    .gallery{
+        display: grid;
+        grid-template-columns: repeat(auto-fit minmax(100px, 1fr));
+        gap: 20px;
+        place-items: center;
+    }
+
+    .testimonials{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .items-footer{
+        gap: 24px;
+    }
+    .item{
+        gap: 16px;
+        place-content: center;
+    }
+    .item-header h3, p{
+        text-align: center;
+    }
+    .item-header p{
+        text-align: center;
+    }
+    .item .sosmed {
+        width: 300px;
+        place-items: center;
+    }
+    .item-menu{
+        place-items: center;
+        margin-top: 0;
+    }
+    .copyright{
+        text-align: center;
+    }
+}
